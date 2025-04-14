@@ -23,6 +23,25 @@ async function fetchProjects() {
     }
   }
 
+  function SetDate(days) {
+    const daysInt = parseInt(days, 10);
+
+    const weeks = Math.floor(daysInt / 7);
+    const remainingDays = daysInt % 7;
+    const months = Math.floor(daysInt / 30);
+    const remainingDaysAfterMonths = daysInt % 30;
+
+    if (months > 0) {
+      return months +  " " + "months";
+    }
+    else if (weeks > 0) {
+      return weeks + " "  + "weeks";
+    }
+    else {
+      return daysInt + " " + "day";
+    }
+  }
+
   function CreateCard(article) {
     var card = document.createElement("article");
     card.classList.add("project-box")
@@ -36,7 +55,7 @@ async function fetchProjects() {
        <p class="project-desc">${article.description}</p>
        <article class="project-details">
                   <p>
-                    ${article.meta.duration_days} | ${article.meta.technologies.map(tech => tech).join(" | ")}
+                    ${SetDate(article.meta.duration_days)} | ${article.meta.technologies.map(tech => tech).join(" | ")}
                   </p>
                   <p>
                     ${article.created_at}
