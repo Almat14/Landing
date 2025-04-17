@@ -789,12 +789,14 @@ footer hr {
 
 /* Buttons */
 .filter-btn {
-  width: 6%;
+  text-decoration: none;
+  text-underline-offset: 17px;
   cursor: pointer;
   position: relative;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
-
-/* Base gray line under all buttons */
 .filter-underline-track {
   position: relative;
   height: 2px;
@@ -809,16 +811,7 @@ footer hr {
   margin: 0;
 }
 
-/* Moving underline */
-#moving-underline {
-  position: absolute;
-  height: 2px;
-  bottom: 0;
-  background-color: #7f56d9;
-  width: 170px;
-  left: 14%;
-  transition: all 0.3s ease;
-}
+
 
 
 @media (max-width: 900px) {

@@ -78,18 +78,14 @@
           </nav>
           <section id="projects-filter-wrapper">
             <section id="projects-filter">
-              <button class="filter-btn active guid-color" onclick="filter(0)">View All</button>
-              <button class="filter-btn guid-color" onclick="filter(1)">Websites</button>
-              <button class="filter-btn guid-color" onclick="filter(2)">Applications</button>
+                <button class="filter-btn active guid-color" onclick="filter(0)">View</button>
+                <button class="filter-btn active guid-color" onclick="filter(1, 'Website')">Websites</button>
+                <button class="filter-btn active guid-color" onclick="filter(2, 'Application')">Applications</button>
+              </section>
+              <section class="filter-underline-track">
+                <hr class="filter-base-line">
+              </section>
             </section>
-            <section class="filter-underline-track">
-              <hr class="filter-base-line">
-              <section id="moving-underline"></section>
-            </section>
-          </section>
-          
-          
-          </section>
           <nav id="Projects-bar"> 
             <section id="project-container"> 
         
@@ -215,6 +211,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     initProjects();
     GetTheme();
+    filter(0)
   });
 </script>
 

@@ -7,9 +7,11 @@ const upButton = document.getElementsByClassName("up-button")[0];
 const burgerButton = document.getElementById("burger-button");
 const body = document.body;
 const toggleButton = document.getElementsByClassName('toggle-button');
+const filterButton = document.getElementsByClassName("filter-btn");
 var savedTheme;
 let changedThemeIcon = false;
 let carouselInterval = null;
+let articles;
 
 function showSlide(index) {
   for (let i = 0; i < x.length; i++) {
@@ -171,7 +173,7 @@ function closeSideMenu() {
 }
 
  async function initProjects() {
-  let articles = await fetchProjects();
+   articles = await fetchProjects();
     SetProjects(articles)
 }
 
@@ -205,11 +207,22 @@ function SetRandomProjects(articles) {
   }
 }
 
-function filter(num) {
-  var item = document.getElementsByClassName("filter-btn")[num];
-  const width = item.getBoundingClientRect().width;
-    console.log('Exact width:', width + 'px');
+function filter(num, tag) {
+ for(let i = 0; i < filterButton.length; i++) {
+  filterButton[i].style.textDecoration ="none";
+ }
+  filterButton[num].style.textDecoration ="underline";
+  var arts = filterByTags(articles, tag);
+  SetProjects(arts);
 }
+
+
+
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function filterByTags(arts, tag) {
+  if (!tag) return arts; 
+  return tag ? arts.filter(art => art.tag === tag) : arts;
 }
