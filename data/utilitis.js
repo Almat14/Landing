@@ -4,6 +4,11 @@ const x = document.getElementsByClassName("slider-heading");
 const z = document.getElementById("slider-image");
 const y = document.getElementsByClassName("slider-dot");
 const upButton = document.getElementsByClassName("up-button")[0];
+const burgerButton = document.getElementById("burger-button");
+const body = document.body;
+const toggleButton = document.getElementsByClassName('toggle-button');
+var savedTheme;
+let changedThemeIcon = false;
 let carouselInterval = null;
 
 function showSlide(index) {
@@ -39,28 +44,49 @@ function moveSlide(num) {
   startCarousel();
 }
 
-const toggleButton = document.getElementById('toggle-button');
-  const body = document.body;
+// 🌓 Apply theme from localStorage (called on page load)
+function GetTheme() {
+  const theme = localStorage.getItem("theme");
+  if (theme === "dark") {
+    document.body.classList.add("dark-theme");
+    changedThemeIcon = true;
+  } else {
+    document.body.classList.remove("dark-theme");
+    changedThemeIcon = false;
+  }
+  SetThemeButton();
+}
 
-  // Check if the dark theme is already applied (localStorage or cookies could be used here)
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-theme');
+// 🌓 Toggle and save theme (called on button click)
+function ChangeTheme() {
+  document.body.classList.toggle("dark-theme");
+
+  if (document.body.classList.contains("dark-theme")) {
+    localStorage.setItem("theme", "dark");
+    changedThemeIcon = true;
+  } else {
+    localStorage.removeItem("theme");
+    changedThemeIcon = false;
   }
 
-  // Toggle theme on button click
-  toggleButton.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
-    // Save the theme in localStorage to persist it across page reloads
-    if (body.classList.contains('dark-theme')) {
-      localStorage.setItem('theme', 'dark');
-      toggleButton.lastElementChild.style.display = "inline";
-      toggleButton.firstElementChild.style.display = "none";
+  SetThemeButton();
+}
+
+// 🔄 Sync theme toggle button icons
+function SetThemeButton() {
+  for (let i = 0; i < toggleButton.length; i++) {
+    const light = toggleButton[i].firstElementChild;
+    const dark = toggleButton[i].lastElementChild;
+
+    if (changedThemeIcon) {
+      light.style.display = "none";
+      dark.style.display = "inline";
     } else {
-      localStorage.removeItem('theme');
-      toggleButton.lastElementChild.style.display = "none";
-      toggleButton.firstElementChild.style.display = "inline";
+      light.style.display = "inline";
+      dark.style.display = "none";
     }
-  });
+  }
+}
 
 
 window.addEventListener('scroll', function() {
@@ -73,4 +99,80 @@ window.addEventListener('scroll', function() {
 });
 
 
-startCarousel();
+
+async function fetchProjects() {
+  try {
+      const response = await fetch('data/data.json');
+      const data = await response.json();
+       return data.articles;
+    } catch (error) {
+      console.error('Error fetching articles:', error);
+      return [];
+    }
+}
+
+
+
+function SetProjects(articles) {
+  document.documentElement = "project"
+  var projectContainer = document.getElementById("project-container");
+  if (articles) {
+      projectContainer.innerHTML = ``;
+      for(let i =0; i< articles.length; i++) {
+          var card = CreateCard(articles[i]);
+          projectContainer.append(card);
+      }
+  }
+}
+
+function SetDate(days) {
+  const daysInt = parseInt(days, 10);
+
+  const weeks = Math.floor(daysInt / 7);
+  const remainingDays = daysInt % 7;
+  const months = Math.floor(daysInt / 30);
+  const remainingDaysAfterMonths = daysInt % 30;
+
+  if (months > 0) {
+    return months +  " " + "months";
+  }
+  else if (weeks > 0) {
+    return weeks + " "  + "weeks";
+  }
+  else {
+    return daysInt + " " + "day";
+  }
+}
+
+function CreateCard(article) {
+  var card = document.createElement("article");
+  card.classList.add("project-box")
+  card.innerHTML = `
+   <img src="${article.image}" alt="${article.title}">
+   <p class="guid-color">${article.tag}</p>
+   <section class="project-type">
+    <h1 class="project-title">${article.title}</h1>
+    <img src="assets/arrow-up-right.png" alt="arrow" class="arrow-icon">
+    </section>
+     <p class="project-desc">${article.description}</p>
+     <article class="project-details">
+                <p>
+                  ${SetDate(article.meta.duration_days)} | ${article.meta.technologies.map(tech => tech).join(" | ")}
+                </p>
+                <p>
+                  ${article.created_at}
+                </p> 
+              </article>
+  `
+  return card;
+}
+
+function closeSideMenu() {
+  burgerButton.checked = false;
+}
+
+ async function initProjects() {
+  let articles = await fetchProjects();
+    SetProjects(articles)
+}
+

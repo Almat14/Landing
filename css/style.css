@@ -25,12 +25,12 @@
 }
 
 body, html {
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   background-color: var(--backColor);
   color: var(--textColor);
   transition: background-color 0.3s, color 0.3s;
-  overflow-x: hidden;
 }
 
 body p h1 {
@@ -39,6 +39,8 @@ body p h1 {
 
 body button {
   background: none;
+  padding: 0;
+  margin: 0;
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -127,9 +129,10 @@ a {
   text-decoration: none;
 }
 
+
 main {
-  padding: 0;
   margin: 0;
+  padding:0;
 }
 
 header img {
@@ -137,7 +140,7 @@ header img {
 }
 
 header {
-  position: sticky;
+  position: fixed;
   width: 100%;
   right: 0;
   top: 0;
@@ -202,7 +205,7 @@ input[type="checkbox"] {
   width: 100%;
   height: 100%;
   display: flex;
-  background-color: #fff; 
+  background-color: var(--backColor);
   transform: translateX(100%);
   transition: transform 0.3s ease;
 }
@@ -211,7 +214,7 @@ input[type="checkbox"] {
 
 .side-nav {
   display: flex;
-  background-color: #FFFFFF;
+  background-color: var(--backColor);
   flex: 0 0 80%;
   flex-direction: column;
 }
@@ -245,22 +248,18 @@ input[type="checkbox"] {
 }
 
 
-#burger-button:checked ~ .side-menu {
-  transform: translateX(0); 
-}
 
 #burger-menu {
   display: none;
 }
 /*End of Burger*/
-#lightModeIcon {
+
+.toggle-button > * ~ :last-child {
   display: none;
 }
 
 /*HERO PART */  
-#Hero {
-  margin-bottom: 5%;
-}
+
 #hero-container {
   margin: 5% 5%;
   display: flex;
@@ -537,9 +536,6 @@ input[type="checkbox"] {
   #nav-buttons {
     display: none;
   }
-  #burger-menu {
-    display: inline;
-  }
 
 #slider-heading img {
   width: 8em;
@@ -555,10 +551,6 @@ input[type="checkbox"] {
 
 /* Projects */
 
-
-#Projects {
-  margin-bottom: 10%;
-}
 
 #project-container {
   display: grid;
@@ -834,6 +826,7 @@ footer hr {
     justify-content: flex-start;
   }
 
+
   #coopyright {
     order: 2;
   }
@@ -842,13 +835,20 @@ footer hr {
   }
 }
 
-@media screen and (max-width: 600px) {
+
+
+@media screen and (max-width: 599px) {
   #hero-buttons {
     flex-direction: column;
   }
   .hero-image {
     display: none;
   }
+
+
+#burger-button:checked ~ .side-menu {
+  transform: translateX(0); 
+}
 
 #side-nav a:hover {
   background-color:#7F56D9;
@@ -873,12 +873,24 @@ footer hr {
   #feature-container {
     grid-template-columns: repeat(1, 1fr);
   }
+  #burger-menu {
+    display: inline;
+  }
 
 
   .feature-box img {
     width: 4em;
   }
 
+  main {
+    padding: 10% 0 0 0;
+  }
 
+}
+
+@media screen and(min-width:600px) {
+  .side-menu {
+    transform: translateX(100);
+  }
 }
 

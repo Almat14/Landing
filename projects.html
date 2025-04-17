@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Project</title>
 </head>
-<body>
+<body id="body">
   <header>
     <nav id="nav-bar">
       <section id="Logo">
@@ -15,15 +15,14 @@
       </section>
       <section id="navigation">
         <nav id="nav-buttons">
-          <a href="#Feature" class="desc-text">About</a>
-            <a href="#Projects" class="desc-text">Projects</a>
-            <a href="#FAQ" class="desc-text">FAQ</a>
-            <a href="#Contact" class="desc-text">Contacts</a>
-                <label>
-                    <input type="checkbox" id="toggle-button">
-                    <img id="darkModeIcon" src="assets/Header/lightmode.png" alt="Light Mode Icon">
-                    <img id="lightModeIcon" src="assets/Header/darkmode.png" alt="Dark Mode Icon">
-                </label>
+          <a href="index.html#Feature" class="desc-text">About</a>
+            <a href="index.html#Projects" class="desc-text">Projects</a>
+            <a href="index.html#FAQ" class="desc-text">FAQ</a>
+            <a href="index.html#Contact" class="desc-text">Contacts</a>
+            <button class="toggle-button" onclick="ChangeTheme()">
+              <img src="assets/Header/lightmode.png" alt="Light Mode Icon">
+              <img src="assets/Header/darkmode.png" alt="Dark Mode Icon">
+            </button>
         </nav>
     
         <label for="burger-button" id="burger-menu">
@@ -35,30 +34,38 @@
     </nav>  
   </header>
       <main>
-
+        <button class="up-button">
+          <img src="assets/arrow-up-right.png" alt="up arrow">
+        </button>
+        
+    
         <input type="checkbox" id="burger-button" hidden>
-        <nav class="side-menu">
-          <section id="side-nav">
-            <a href="#Feature" class="desc-text">About</a>
-            <a href="#Projects" class="desc-text">Projects</a>
-            <a href="#FAQ" class="desc-text">FAQ</a>
-            <a href="#Contact" class="desc-text">Contacts</a>
-          </section>
-        
-          <section id="side-buttons">
-            <button><img src="assets/x.png" alt="x-icon"></button>
-            <button><img src="assets/linkedin.png" alt="linkedin"></button>
-            <button><img src="assets/facebook.png" alt="facebook"></button>
-            <button><img src="assets/github.png" alt="github"></button>
-        
-            <label>
-              <input type="checkbox" id="toggle-button">
-              <img id="darkModeIcon" src="assets/Header/lightmode.png" alt="Light Mode Icon">
-              <img id="lightModeIcon" src="assets/Header/darkmode.png" alt="Dark Mode Icon">
-            </label>
-          </section>
-        </nav>
-
+<nav class="side-menu">
+  <section class="side-nav">
+    <a href="index.html#Feature" class="desc-text" onclick="closeSideMenu()">About</a>
+    <a href="index.html#Projects" class="desc-text" onclick="closeSideMenu()">Projects</a>
+    <a href="index.html#FAQ" class="desc-text" onclick="closeSideMenu()">FAQ</a>
+    <a href="index.html#Contact" class="desc-text" onclick="closeSideMenu()">Contacts</a>
+  </section>
+  <section id="side-buttons">
+      <a href="https://x.com/elonmusk" target="_blank">
+        <img src="assets/x.png" alt="x-icon">
+      </a>
+      <a href="https://in.linkedin.com/company/applet-technology-service" target="_blank">
+        <img src="assets/linkedin.png" alt="linkedin">
+      </a>
+      <a href="https://www.facebook.com/appletweb" target="_blank">
+        <img src="assets/facebook.png" alt="facebook">
+      </a>
+      <a href="https://github.com/topics/applet?l=html&o=desc&s=" target="_blank">
+        <img src="assets/github.png" alt="github">
+      </a>
+      <button class="toggle-button" onclick="ChangeTheme()">
+        <img src="assets/Header/lightmode.png" alt="Light Mode Icon">
+        <img src="assets/Header/darkmode.png" alt="Dark Mode Icon">
+      </button>
+  </section>
+</nav>
         
         <nav id="Projects">
           <nav title="Heading">
@@ -203,6 +210,13 @@
           </nav>
         </nav>
       </footer>
-      <script src="projects.js"></script>
+      <script src="data/utilitis.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    initProjects();
+    GetTheme();
+  });
+</script>
+
 </body>
 </html>

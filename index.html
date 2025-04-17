@@ -6,13 +6,13 @@
   <link rel="stylesheet" href="css/style.css">
   <title>Landing M1</title>
 </head>
-<body>
+<body id="body">
   <!-- Header -->
   <header>
     <nav id="nav-bar">
       <section id="Logo">
         <img src="assets/Header/logo.png" alt="Logo">
-        <a href="#Hero" class="logo-font">Applet</a>
+        <a href="#" class="logo-font">Applet</a>
       </section>
       <section id="navigation">
         <nav id="nav-buttons">
@@ -20,7 +20,7 @@
             <a href="#Projects" class="desc-text">Projects</a>
             <a href="#FAQ" class="desc-text">FAQ</a>
             <a href="#Contact" class="desc-text">Contacts</a>
-            <button id="toggle-button">
+            <button class="toggle-button" onclick="ChangeTheme()">
               <img id="darkModeIcon" src="assets/Header/lightmode.png" alt="Light Mode Icon">
                     <img id="lightModeIcon" src="assets/Header/darkmode.png" alt="Dark Mode Icon">
             </button>
@@ -39,23 +39,28 @@
     <input type="checkbox" id="burger-button" hidden>
 <nav class="side-menu">
   <section class="side-nav">
-    <a href="#Feature" class="desc-text">About</a>
-    <a href="#Projects" class="desc-text">Projects</a>
-    <a href="#FAQ" class="desc-text">FAQ</a>
-    <a href="#Contact" class="desc-text">Contacts</a>
+    <a href="#Feature" class="desc-text" onclick="closeSideMenu()">About</a>
+    <a href="#Projects" class="desc-text" onclick="closeSideMenu()">Projects</a>
+    <a href="#FAQ" class="desc-text" onclick="closeSideMenu()">FAQ</a>
+    <a href="#Contact" class="desc-text" onclick="closeSideMenu()">Contacts</a>
   </section>
-
   <section id="side-buttons">
-    <button><img src="assets/x.png" alt="x-icon"></button>
-    <button><img src="assets/linkedin.png" alt="linkedin"></button>
-    <button><img src="assets/facebook.png" alt="facebook"></button>
-    <button><img src="assets/github.png" alt="github"></button>
-
-    <label>
-      <input type="checkbox">
-      <img id="darkModeIcon" src="assets/Header/lightmode.png" alt="Light Mode Icon">
-      <img id="lightModeIcon" src="assets/Header/darkmode.png" alt="Dark Mode Icon">
-    </label>
+      <a href="https://x.com/elonmusk" target="_blank">
+        <img src="assets/x.png" alt="x-icon">
+      </a>
+      <a href="https://in.linkedin.com/company/applet-technology-service" target="_blank">
+        <img src="assets/linkedin.png" alt="linkedin">
+      </a>
+      <a href="https://www.facebook.com/appletweb" target="_blank">
+        <img src="assets/facebook.png" alt="facebook">
+      </a>
+      <a href="https://github.com/topics/applet?l=html&o=desc&s=" target="_blank">
+        <img src="assets/github.png" alt="github">
+      </a>
+      <button class="toggle-button" onclick="ChangeTheme()">
+        <img src="assets/Header/lightmode.png" alt="Light Mode Icon">
+        <img src="assets/Header/darkmode.png" alt="Dark Mode Icon">
+      </button>
   </section>
 </nav>
 <!--Up button-->
@@ -385,7 +390,13 @@
   
     </section>
   </nav>
-  <script src="data/utilitis.js"></script>
+  <script src="data/utilitis.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      startCarousel();
+      GetTheme();
+    });
+  </script>
 
   <!--Contact-->
   <nav id="Contact">
@@ -443,18 +454,18 @@
     <nav id="end-bar">
       <p id="coopyright" class="slider-desc">@ 2025 Applet. All rights reserved.</p>
       <section id="icons">
-        <button>
-          <img src="assets/x.png" alt="x-icon">
-        </button>
-        <button>
-          <img src="assets/linkedin.png" alt="linkedin">
-        </button>
-        <button>
-          <img src="assets/facebook.png" alt="facebook">
-        </button>
-        <button>
-          <img src="assets/github.png" alt="github">
-        </button>
+          <a href="https://x.com/elonmusk" target="_blank">
+            <img src="assets/x.png" alt="x-icon">
+          </a>
+          <a href="https://in.linkedin.com/company/applet-technology-service" target="_blank">
+            <img src="assets/linkedin.png" alt="linkedin">
+          </a>
+          <a href="https://www.facebook.com/appletweb" target="_blank">
+            <img src="assets/facebook.png" alt="facebook">
+          </a>
+          <a href="https://github.com/topics/applet?l=html&o=desc&s=" target="_blank">
+            <img src="assets/github.png" alt="github">
+          </a>
       </section>
     </nav>
   </nav>
