@@ -92,7 +92,6 @@ function SetThemeButton() {
 window.addEventListener('scroll', function() {
   if (window.scrollY >= 300) {
     upButton.style.display = "block";
-    // You can trigger any actions here if you reach 300px
   } else {
     upButton.style.display = "none";
   }
@@ -206,7 +205,11 @@ function SetRandomProjects(articles) {
   }
 }
 
-
+function filter(num) {
+  var item = document.getElementsByClassName("filter-btn")[num];
+  const width = item.getBoundingClientRect().width;
+    console.log('Exact width:', width + 'px');
+}
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
