@@ -18,11 +18,18 @@
   --contact-title-font:2em;
 }
 
-.dark-theme {
+:root:has(#toggle-theme:checked) {
   --backColor: black;
   --textColor: white;
   --descText: white;
 }
+
+/* 
+.dark-theme {
+  --backColor: black;
+  --textColor: white;
+  --descText: white;
+} */
 
 body, html {
   overflow-x: hidden;
@@ -267,6 +274,14 @@ input[type="checkbox"] {
 .toggle-button > * ~ :last-child {
   display: none;
 }
+
+#toggle-theme:checked ~ .toggle-button:nth-of-type(2) {
+  display: inline;
+}
+/* 
+input[type="checkbox"] {
+  display: none;
+} */
 
 /*HERO PART */  
 
@@ -810,8 +825,6 @@ footer hr {
   width: 100%;
   margin: 0;
 }
-
-
 
 
 @media (max-width: 900px) {
