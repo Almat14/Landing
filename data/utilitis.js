@@ -176,9 +176,37 @@ function closeSideMenu() {
     SetProjects(articles)
 }
 
+async function RandomProjects() {
+  let articles = await fetchProjects();
+    SetRandomProjects(articles)
+}
+
 function scrollToTop() {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth' // 👈 this makes it smooth!
+    behavior: 'smooth' 
   });
+}
+
+function SetRandomProjects(articles) {
+  var projectContainer = document.getElementById("project-container");
+  if (articles && articles.length > 0) {
+    projectContainer.innerHTML = ``;
+
+    // Shuffle articles
+    const shuffled = [...articles].sort(() => Math.random() - 0.5);
+
+    // Take the first 3 unique ones
+    const selected = shuffled.slice(0, 3);
+
+    for (const article of selected) {
+      var card = CreateCard(article);
+      projectContainer.append(card);
+    }
+  }
+}
+
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
