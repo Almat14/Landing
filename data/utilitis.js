@@ -176,3 +176,9 @@ function closeSideMenu() {
     SetProjects(articles)
 }
 
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // 👈 this makes it smooth!
+  });
+}

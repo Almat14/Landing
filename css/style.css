@@ -241,10 +241,17 @@ input[type="checkbox"] {
   flex-direction: column;
 }
 
+
 .up-button {
-  background-color:#414651;
-  padding: 5% 5%;
+  display: none;
+  background-color: #414651;
+  padding: 2% 2%;
   position: fixed;
+  bottom: 20px;   /* distance from bottom */
+  right: 20px;     /* distance from left */
+  z-index: 3;  /* make sure it's above other stuff */
+  border: none;
+  cursor: pointer;
 }
 
 
@@ -507,6 +514,11 @@ input[type="checkbox"] {
     border-bottom-left-radius: 0;
   }
 
+  .slider-title-container {
+    width: 90%;
+    height: 100%;
+  }
+
   .slider-desc {
     font-size: 1em;
   }
@@ -520,7 +532,7 @@ input[type="checkbox"] {
  }
 
   .slider-title {
-  font-size: 2em;
+  font-size: 1.3em;
   }
 
   #Contact {
@@ -845,12 +857,17 @@ footer hr {
   .hero-image {
     display: none;
   }
-
+  body button:hover {
+    transform: none;
+  }
 
 #burger-button:checked ~ .side-menu {
   transform: translateX(0); 
 }
 
+.up-button {
+  padding: 5% 5%;
+}
 #side-nav a:hover {
   background-color:#7F56D9;
 }
