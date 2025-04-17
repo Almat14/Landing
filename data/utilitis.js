@@ -208,12 +208,14 @@ function SetRandomProjects(articles) {
 }
 
 function filter(num, tag) {
+  let filtered = articles;
  for(let i = 0; i < filterButton.length; i++) {
   filterButton[i].style.textDecoration ="none";
  }
   filterButton[num].style.textDecoration ="underline";
-  var arts = filterByTags(articles, tag);
-  SetProjects(arts);
+    filtered = filterByTags(filtered, tag);
+    //filtered = sortByCreatedAt(filtered);
+  SetProjects(filtered);
 }
 
 
@@ -226,3 +228,13 @@ function filterByTags(arts, tag) {
   if (!tag) return arts; 
   return tag ? arts.filter(art => art.tag === tag) : arts;
 }
+
+
+// function sortByCreatedAt(articles) {
+//   return articles.sort((a, b) => {
+//     return new Date(b.created_at) - new Date(a.created_at);
+//   });
+// }
+
+
+
