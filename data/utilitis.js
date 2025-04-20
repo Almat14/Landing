@@ -6,10 +6,9 @@ const y = document.getElementsByClassName("slider-dot");
 const upButton = document.getElementsByClassName("up-button")[0];
 const burgerButton = document.getElementById("burger-button");
 const body = document.body;
-const toggleButton = document.getElementsByClassName('toggle-button');
+const toggleTheme = document.getElementById("toggle-theme");
 const filterButton = document.getElementsByClassName("filter-btn");
 var savedTheme;
-let changedThemeIcon = false;
 let carouselInterval = null;
 let articles;
 
@@ -46,49 +45,28 @@ function moveSlide(num) {
   startCarousel();
 }
 
-// 🌓 Apply theme from localStorage (called on page load)
 function GetTheme() {
-  const theme = localStorage.getItem("theme");
+  var theme = localStorage.getItem("theme");
+  console.log(theme);
   if (theme === "dark") {
-    document.body.classList.add("dark-theme");
-    changedThemeIcon = true;
-  } else {
-    document.body.classList.remove("dark-theme");
-    changedThemeIcon = false;
+    toggleTheme.checked = true;
   }
-  SetThemeButton();
+  else {
+    toggleTheme.checked = false;
+  }
 }
 
-// 🌓 Toggle and save theme (called on button click)
 function ChangeTheme() {
-  document.body.classList.toggle("dark-theme");
-
-  if (document.body.classList.contains("dark-theme")) {
+  if (toggleTheme.checked) {
+    console.log("Changed to dark");
     localStorage.setItem("theme", "dark");
-    changedThemeIcon = true;
   } else {
+    console.log("Changed to white");
     localStorage.removeItem("theme");
-    changedThemeIcon = false;
-  }
-
-  SetThemeButton();
-}
-
-// 🔄 Sync theme toggle button icons
-function SetThemeButton() {
-  for (let i = 0; i < toggleButton.length; i++) {
-    const light = toggleButton[i].firstElementChild;
-    const dark = toggleButton[i].lastElementChild;
-
-    if (changedThemeIcon) {
-      light.style.display = "none";
-      dark.style.display = "inline";
-    } else {
-      light.style.display = "inline";
-      dark.style.display = "none";
-    }
   }
 }
+
+
 
 
 window.addEventListener('scroll', function() {

@@ -24,12 +24,6 @@
   --descText: white;
 }
 
-/* 
-.dark-theme {
-  --backColor: black;
-  --textColor: white;
-  --descText: white;
-} */
 
 body, html {
   overflow-x: hidden;
@@ -41,7 +35,7 @@ body, html {
 }
 
 body p h1 {
-  font-family:'Times New Roman', Times, serif;
+  font-family:serif;
 }
 
 body button {
@@ -192,10 +186,10 @@ header {
   gap: 2%;
 }
 
-
+/* 
 input[type="checkbox"] {
   display: none;
-}
+} */
 
 
 /*Burger Menu */
@@ -245,6 +239,7 @@ input[type="checkbox"] {
   padding: 4% 0%;
   gap: 2%;
   flex: 0 0 20%;
+  justify-items:end;
   background-color: #7F56D9;
   align-items: center;
   display: flex;
@@ -257,9 +252,9 @@ input[type="checkbox"] {
   background-color: #414651;
   padding: 2% 2%;
   position: fixed;
-  bottom: 300px;   /* distance from bottom */
-  right: 100px;     /* distance from left */
-  z-index: 3;  /* make sure it's above other stuff */
+  bottom: 300px;  
+  right: 100px;     
+  z-index: 3;  
   border: none;
   cursor: pointer;
 }
@@ -270,19 +265,18 @@ input[type="checkbox"] {
   display: none;
 }
 /*End of Burger*/
-
-.toggle-button > * ~ :last-child {
+.toggle-button img:last-child {
   display: none;
 }
 
-#toggle-theme:checked ~ .toggle-button:nth-of-type(2) {
+/* When toggle is checked, hide light icons and show dark ones */
+body:has(#toggle-theme:checked) .toggle-button img:first-child {
+  display: none;
+}
+
+body:has(#toggle-theme:checked) .toggle-button img:last-child {
   display: inline;
 }
-/* 
-input[type="checkbox"] {
-  display: none;
-} */
-
 /*HERO PART */  
 
 #hero-container {
@@ -825,6 +819,8 @@ footer hr {
   width: 100%;
   margin: 0;
 }
+
+
 
 
 @media (max-width: 900px) {

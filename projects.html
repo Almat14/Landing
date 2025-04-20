@@ -7,6 +7,7 @@
     <title>Project</title>
 </head>
 <body id="body">
+  <input type="checkbox" id="toggle-theme" hidden>
   <header>
     <nav id="nav-bar">
       <section id="Logo">
@@ -16,29 +17,23 @@
       <section id="navigation">
         <nav id="nav-buttons">
           <a href="index.html#Feature" class="desc-text">About</a>
-            <a href="index.html#Projects" class="desc-text">Projects</a>
-            <a href="index.html#FAQ" class="desc-text">FAQ</a>
-            <a href="index.html#Contact" class="desc-text">Contacts</a>
-            <button class="toggle-button" onclick="ChangeTheme()">
+            <a href="index#Projects" class="desc-text">Projects</a>
+            <a href="index#FAQ" class="desc-text">FAQ</a>
+            <a href="index#Contact" class="desc-text">Contacts</a>
+
+            <label class="toggle-button" for="toggle-theme">
               <img src="assets/Header/lightmode.png" alt="Light Mode Icon">
               <img src="assets/Header/darkmode.png" alt="Dark Mode Icon">
-            </button>
+            </label>
         </nav>
-    
         <label for="burger-button" id="burger-menu">
           <img src="assets/burger.png" alt="burger">
           <img src="assets/x.png" alt="x">
         </label>
-        
     </section>
     </nav>  
   </header>
       <main>
-        <button class="up-button" onclick="scrollToTop()">
-          <img src="assets/arrow-up-right.png" alt="up arrow">
-        </button>
-        
-    
         <input type="checkbox" id="burger-button" hidden>
 <nav class="side-menu">
   <section class="side-nav">
@@ -60,14 +55,17 @@
       <a href="https://github.com/topics/applet?l=html&o=desc&s=" target="_blank">
         <img src="assets/github.png" alt="github">
       </a>
-      <button class="toggle-button" onclick="ChangeTheme()">
+      <label class="toggle-button" for="toggle-theme">
         <img src="assets/Header/lightmode.png" alt="Light Mode Icon">
         <img src="assets/Header/darkmode.png" alt="Dark Mode Icon">
-      </button>
+      </label>
   </section>
 </nav>
+
+<button class="up-button" onclick="scrollToTop()">
+  <img src="assets/arrow-up-right.png" alt="up arrow">
+</button>
         
-        <nav>
           <nav title="Heading">
             <h1 class="guid-color center-text">Latest projects</h1>
             <h2 class="title-text center-text" >Innovations we`re proud of</h2>
@@ -208,11 +206,15 @@
       </footer>
       <script src="data/utilitis.js" defer></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    initProjects();
-    GetTheme();
-    filter(0)
-  });
+ document.addEventListener('DOMContentLoaded', function() {
+
+  initProjects();
+  GetTheme();
+  filter(0);
+  
+  toggleTheme.addEventListener("change", ChangeTheme); // FIXED here
+});
+
 </script>
 
 </body>
