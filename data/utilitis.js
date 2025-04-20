@@ -103,11 +103,8 @@ function SetProjects(articles) {
 
 function SetDate(days) {
   const daysInt = parseInt(days, 10);
-
   const weeks = Math.floor(daysInt / 7);
-  const remainingDays = daysInt % 7;
   const months = Math.floor(daysInt / 30);
-  const remainingDaysAfterMonths = daysInt % 30;
 
   if (months > 0) {
     return months +  " " + "months";
@@ -169,10 +166,7 @@ function SetRandomProjects(articles) {
   if (articles && articles.length > 0) {
     projectContainer.innerHTML = ``;
 
-    // Shuffle articles
     const shuffled = [...articles].sort(() => Math.random() - 0.5);
-
-    // Take the first 3 unique ones
     const selected = shuffled.slice(0, 3);
 
     for (const article of selected) {
@@ -189,7 +183,6 @@ function filter(num, tag) {
  }
   filterButton[num].style.textDecoration ="underline";
     filtered = filterByTags(filtered, tag);
-    //filtered = sortByCreatedAt(filtered);
   SetProjects(filtered);
 }
 
@@ -206,11 +199,7 @@ function filterByTags(arts, tag) {
 
 function handleFaq(event) {
   const clickedElement = event.target;
-
-  // Find the closest parent with the class 'faq-content' (the container of this FAQ)
   const faqContent = clickedElement.closest('.faq-content');
-
-  // Find the 'details' element inside the faqContent
   const details = faqContent.querySelector('details');
   details.open = !details.open;
 }
