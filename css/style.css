@@ -204,7 +204,7 @@ input[type="checkbox"] {
 .side-menu {
   position: fixed;
   z-index: 2;
-  top: 60px;
+  top: 3.5rem;
   width: 100%;
   height: 100%;
   display: flex;
@@ -664,6 +664,9 @@ body:has(#toggle-theme:checked) .toggle-button img:last-child {
   justify-content: space-between;
   align-items: flex-start;
 }
+.faq-trigger {
+  background-color: #53389E;
+}
 
 .faq-status {
   display: flex;
@@ -676,6 +679,7 @@ body:has(#toggle-theme:checked) .toggle-button img:last-child {
   display: none;
 }
 
+
 summary {
   font-size: 14px;
   cursor: pointer;
@@ -685,6 +689,7 @@ summary {
 details > summary {
   list-style: none;
 }
+
 .faq-status img {
   width: var(--faq-font);
 }
@@ -714,7 +719,7 @@ details[open] ~ .faq-status img:last-of-type {
 
 #contact-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
   gap: 30px;
   padding-top: 3%;
   padding-bottom: 10%;

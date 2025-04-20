@@ -47,7 +47,6 @@ function moveSlide(num) {
 
 function GetTheme() {
   var theme = localStorage.getItem("theme");
-  console.log(theme);
   if (theme === "dark") {
     toggleTheme.checked = true;
   }
@@ -58,10 +57,8 @@ function GetTheme() {
 
 function ChangeTheme() {
   if (toggleTheme.checked) {
-    console.log("Changed to dark");
     localStorage.setItem("theme", "dark");
   } else {
-    console.log("Changed to white");
     localStorage.removeItem("theme");
   }
 }
@@ -207,12 +204,16 @@ function filterByTags(arts, tag) {
   return tag ? arts.filter(art => art.tag === tag) : arts;
 }
 
+function handleFaq(event) {
+  const clickedElement = event.target;
 
-// function sortByCreatedAt(articles) {
-//   return articles.sort((a, b) => {
-//     return new Date(b.created_at) - new Date(a.created_at);
-//   });
-// }
+  // Find the closest parent with the class 'faq-content' (the container of this FAQ)
+  const faqContent = clickedElement.closest('.faq-content');
+
+  // Find the 'details' element inside the faqContent
+  const details = faqContent.querySelector('details');
+  details.open = !details.open;
+}
 
 
 
