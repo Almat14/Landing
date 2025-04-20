@@ -8,7 +8,9 @@
   --violetColor:#7F56D9;
   --darkVioletColor:#53389E;
   --whiteColor:white;
+  --contact-back:#c9b1fd41;
   --faq-font:2em;
+  --back-two:rgba(240, 240, 240, 0.89);
   --project-title:1.5rem;
   --project-desc:1rem;
   --violet-text:2em;
@@ -22,6 +24,8 @@
   --backColor: black;
   --textColor: white;
   --descText: white;
+  --back-two:rgba(255, 253, 253, 0.075);
+  --contact-back:#ffffff0e;
 }
 
 
@@ -352,6 +356,7 @@ body:has(#toggle-theme:checked) .toggle-button img:last-child {
 
 /*Features part*/
 #Feature {
+  background-color: var(--back-two);
   margin-bottom: 5%;
   display: flex;
   flex-direction: column;
@@ -639,6 +644,7 @@ body:has(#toggle-theme:checked) .toggle-button img:last-child {
 
 /*Questions*/
 #FAQ {
+  background-color: var(--back-two);
   padding-bottom: 10%;
 }
 
@@ -646,17 +652,18 @@ body:has(#toggle-theme:checked) .toggle-button img:last-child {
   display: flex;
   padding: 5% 10%;
   flex-direction: column;
-  gap: 50px;
+  gap: 2rem;
 }
 
 #faq-heading {
   margin: 0 20%;
+  padding-top: 5%;
 }
 
 .faq-question {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
 }
 
 .faq-content {
@@ -681,7 +688,7 @@ body:has(#toggle-theme:checked) .toggle-button img:last-child {
 
 
 summary {
-  font-size: 14px;
+  font-size: var(--feature-desc-font);
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -708,8 +715,7 @@ details[open] ~ .faq-status img:last-of-type {
 .faq-underline {
   width: 100%;
   border: none;
-  border-top: 1px solid #ccc;
-  margin: 10px 0 0 0;
+  border-top: 2px solid #ccc;
 }
 
 /* Contact section */
@@ -720,7 +726,7 @@ details[open] ~ .faq-status img:last-of-type {
 #contact-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 30px;
+  gap: 2rem;
   padding-top: 3%;
   padding-bottom: 10%;
 }
@@ -731,7 +737,7 @@ details[open] ~ .faq-status img:last-of-type {
   align-items: flex-start;
   text-align: start;
   padding: 15%;
-  background-color: #c9b1fd41;
+  background-color: var(--contact-back);
   transition: transform 0.2s ease;
 }
 
