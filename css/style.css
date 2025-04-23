@@ -3,8 +3,8 @@
   --textColor: black;
   --descText:#464749;
   --mainHeadingFont:3rem;
-  --logo-font:2.5rem;
-  --mainDescFont:2rem;
+  --logo-font:1.5rem;
+  --mainDescFont:1.1rem;
   --violetColor:#7F56D9;
   --darkVioletColor:#53389E;
   --whiteColor:white;
@@ -14,7 +14,7 @@
   --project-title:1.5rem;
   --project-desc:1rem;
   --violet-text:2rem;
-  --hero-main-font:7.5rem;
+  --hero-main-font:4rem;
   --hero-img-width:2.5rem;
   --feature-desc-font:2rem;
   --contact-title-font:2rem;
@@ -38,10 +38,11 @@ body, html {
   background-color: var(--backColor);
   color: var(--textColor);
   transition: background-color 0.3s, color 0.3s;
+
 }
 
 body p h1 {
-  font-family:serif;
+  font-family:'Times New Roman', Times, serif;
 }
 
 body button {
@@ -88,11 +89,12 @@ body button:hover  {
 .contact-title {
   font-size: var(--contact-title-font);
 }
-.faq-desc {
+.faq-desc {  align-items: center;
   font-size: var(--faq-font);
 }
 .desc-text {
   font-size:var(--mainDescFont);
+  font-weight:600;
   color: var(--desc-color);
 }
 
@@ -109,8 +111,8 @@ body button:hover  {
 
 .logo-font {
   font-size: var(--logo-font);
+  font-weight:600;
   color: var(--textColor);
-  font-weight:bold;
 }
 
 .slider-title {
@@ -137,8 +139,8 @@ a {
 
 
 main {
-  margin:0;
-  padding: 5% 0 0 0;
+  margin: 0;
+  padding: 0% 0 0 0;
 }
 
 header img {
@@ -146,11 +148,9 @@ header img {
 }
 
 header {
-  position: fixed;
   margin: 0;
   padding: 0;
   width: 100%;
-  right: 0;
   top: 0;
   background-color:var(--backColor);
   z-index: 5;
@@ -159,14 +159,21 @@ header {
 #nav-bar {
   display: flex;
   align-items: center;
-  justify-items: center;
-  margin: 2% 5%;
+  margin: 1.5% 8%;
+  justify-content: space-between;
 }
 
 
-#nav-buttons {
+#Logo {
   display: flex;
   align-items: center;
+  gap: 15%;
+}
+
+#nav-buttons {
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
   gap: 5%;
 }
 
@@ -174,12 +181,6 @@ header {
 
 #Logo img {
   width: var(--logo-font)
-}
-#Logo {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  gap: 1%;
 }
 /* input[type="checkbox"] {
   display: none;
@@ -210,7 +211,7 @@ header {
   z-index: 2;
   width: 100%;
   height: 100%;
-  display: flex;
+  display: none;
   background-color: var(--backColor);
   transform: translateX(100%);
   transition: transform 0.3s ease;
@@ -283,9 +284,12 @@ body:has(#toggle-theme:checked) .toggle-button img:last-child {
 }
 
 /*HERO PART */  
+#Hero {
+  width: 100%;
+}
 
 #hero-container {
-  margin: 5% 5%;
+  margin: 4% 8%;
   display: flex;
   align-items: center;
 }
@@ -301,13 +305,15 @@ body:has(#toggle-theme:checked) .toggle-button img:last-child {
   display: flex;
   z-index: 1;
   flex-direction: column;
-  line-height: 1.5;
 }
 
 .hero-heading h1 {
   font-size: var(--hero-main-font); 
   margin-bottom: 5%;
   margin-top: 0;
+  line-height: 1.5;
+  font-weight: 800;
+  width: 150%;
 }
 
 .hero-heading p {
@@ -332,10 +338,10 @@ body:has(#toggle-theme:checked) .toggle-button img:last-child {
 
 .main-button {
   display: flex;
-  padding: 1em 1.5em;
-  font-size: 2em;
+  padding: 1rem 1rem;
+  font-size: 1.2em;
   font-weight: 600;
-  border-radius: 5%;
+  border-radius: 10%;
   margin: 2% 0;
 }
 
@@ -837,6 +843,11 @@ footer hr {
 
 
 
+body:has(#burger-button:checked) body  {
+  overflow: hidden;
+ }
+
+
 
 @media (max-width: 900px) {
   #projects-container {
@@ -874,7 +885,7 @@ footer hr {
   display: inline;
 }
   main {
-  padding: 20% 0 0 0;
+    padding: 20% 0 0 0;
   }
   #hero-buttons {
     flex-direction: column;
@@ -935,10 +946,6 @@ body:has(#burger-button:checked) .side-menu {
   transform: translateX(0); 
 }
 
-
-body:has(#burger-button:checked)  {
- overflow-y: hidden;
-}
 
 body:has(#burger-button:checked) .x {
   display: inline;
