@@ -6,63 +6,67 @@
   <link rel="stylesheet" href="css/style.css">
   <title>Landing M1</title>
 </head>
-<body id="body">
+<body>
   <input type="checkbox" id="toggle-theme" hidden>
+  <input type="checkbox" id="burger-button">
   <header>
     <nav id="nav-bar">
       <section id="Logo">
         <img src="assets/Header/logo.png" alt="Logo">
         <a href="#" class="logo-font">Applet</a>
       </section>
-      <section id="navigation">
-        <nav id="nav-buttons">
-          <a href="#Feature" class="desc-text">About</a>
-            <a href="#Projects" class="desc-text">Projects</a>
-            <a href="#FAQ" class="desc-text">FAQ</a>
-            <a href="#Contact" class="desc-text">Contacts</a>
 
-            <label class="toggle-button" for="toggle-theme">
-              <img src="assets/Header/lightmode.png" alt="Light Mode Icon">
-              <img src="assets/Header/darkmode.png" alt="Dark Mode Icon">
-            </label>
-        </nav>
-        <label for="burger-button" id="burger-menu">
-          <img src="assets/burger.png" alt="burger">
-          <img src="assets/x.png" alt="x">
+      <section id="nav-buttons">
+        <a href="#Feature" class="desc-text">About</a>
+        <a href="#Projects" class="desc-text">Projects</a>
+        <a href="#FAQ" class="desc-text">FAQ</a>
+        <a href="#Contact" class="desc-text">Contacts</a>
+
+        <label class="toggle-button" for="toggle-theme">
+          <img src="assets/Header/lightmode.png" alt="Light Mode Icon">
+          <img src="assets/Header/darkmode.png" alt="Dark Mode Icon">
         </label>
+      </section>
 
-    </section>
+      <label for="burger-button" id="burger-menu">
+        <img src="assets/burger.png" alt="burger" class="burger">
+
+        <section class="x">
+          <img src="assets/close-menu-violet.png" alt="x-violet">
+          <img src="assets/close-button.png" alt="x">
+        </section>
+      </label>
     </nav> 
+
+    <label class="side-menu" for="burger-button">
+      <section class="side-nav">
+        <a href="#Feature" class="desc-text" onclick="closeSideMenu()">About</a>
+        <a href="#Projects" class="desc-text" onclick="closeSideMenu()">Projects</a>
+        <a href="#FAQ" class="desc-text" onclick="closeSideMenu()">FAQ</a>
+        <a href="#Contact" class="desc-text" onclick="closeSideMenu()">Contacts</a>
+      </section>
+      <section id="side-buttons">
+          <a href="https://x.com/elonmusk" target="_blank">
+            <img src="assets/x.png" alt="x-icon">
+          </a>
+          <a href="https://in.linkedin.com/company/applet-technology-service" target="_blank">
+            <img src="assets/linkedin.png" alt="linkedin">
+          </a>
+          <a href="https://www.facebook.com/appletweb" target="_blank">
+            <img src="assets/facebook.png" alt="facebook">
+          </a>
+          <a href="https://github.com/topics/applet?l=html&o=desc&s=" target="_blank">
+            <img src="assets/github.png" alt="github">
+          </a>
+                <label class="toggle-button" for="toggle-theme">
+                  <img src="assets/Header/lightmode.png" alt="Light Mode Icon">
+                  <img src="assets/Header/darkmode.png" alt="Dark Mode Icon">
+                </label>
+      </section>
+    </label>
+
   </header>
   <main>
-
-    <input type="checkbox" id="burger-button" hidden>
-<nav class="side-menu">
-  <section class="side-nav">
-    <a href="#Feature" class="desc-text" onclick="closeSideMenu()">About</a>
-    <a href="#Projects" class="desc-text" onclick="closeSideMenu()">Projects</a>
-    <a href="#FAQ" class="desc-text" onclick="closeSideMenu()">FAQ</a>
-    <a href="#Contact" class="desc-text" onclick="closeSideMenu()">Contacts</a>
-  </section>
-  <section id="side-buttons">
-      <a href="https://x.com/elonmusk" target="_blank">
-        <img src="assets/x.png" alt="x-icon">
-      </a>
-      <a href="https://in.linkedin.com/company/applet-technology-service" target="_blank">
-        <img src="assets/linkedin.png" alt="linkedin">
-      </a>
-      <a href="https://www.facebook.com/appletweb" target="_blank">
-        <img src="assets/facebook.png" alt="facebook">
-      </a>
-      <a href="https://github.com/topics/applet?l=html&o=desc&s=" target="_blank">
-        <img src="assets/github.png" alt="github">
-      </a>
-            <label class="toggle-button" for="toggle-theme">
-              <img src="assets/Header/lightmode.png" alt="Light Mode Icon">
-              <img src="assets/Header/darkmode.png" alt="Dark Mode Icon">
-            </label>
-  </section>
-</nav>
 <!--Up button-->
 
 

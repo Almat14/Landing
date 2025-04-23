@@ -27,8 +27,6 @@
   --back-two:rgba(255, 253, 253, 0.075);
   --contact-back:#ffffff0e;
 }
-
-
 body, html {
   overflow-x: hidden;
   margin: 0;
@@ -137,9 +135,8 @@ a {
 
 
 main {
-  margin: 0;
-  padding:0;
-  padding: 5% 0 0 0;
+  margin:0;
+  padding: 20% 0 0 0;
 }
 
 header img {
@@ -148,26 +145,20 @@ header img {
 
 header {
   position: fixed;
+  margin: 0;
+  padding: 0;
   width: 100%;
   right: 0;
   top: 0;
   background-color:var(--backColor);
-  z-index: 3;
+  z-index: 5;
 }
 
 #nav-bar {
   display: flex;
   align-items: center;
   justify-items: center;
-  padding: 2% 0;
-}
-
-
-#navigation {
-  margin: 0 3%;
-  display: flex;
-  justify-content: flex-end;
-  flex: 1;
+  margin: 2% 5%;
 }
 
 
@@ -175,40 +166,53 @@ header {
   display: flex;
   align-items: center;
   gap: 5%;
-  padding: 0% 5%;
 }
+
 
 
 #Logo img {
   width: var(--logo-font)
 }
 #Logo {
-  margin: 0 5%;
   display: flex;
   flex: 1;
   align-items: center;
-  gap: 2%;
+  gap: 1%;
 }
-
-/* 
-input[type="checkbox"] {
+/* input[type="checkbox"] {
   display: none;
-} */
+}  */
 
-
-/*Burger Menu */
-#burger-menu > * ~ :last-child {
+.x {
   display: none;
 }
+
+.x > * ~ :last-child {
+  display: none;
+}
+
+body:has(#toggle-theme:checked) .x img:first-child {
+  display: none;
+}
+
+body:has(#toggle-theme:checked) .x img:last-child {
+  display: inline;
+}
+
 #burger-menu {
-  margin: 0 5%;
   display: none;
+  align-items: center;
 }
+
+#burger-menu img {
+  width:max-content;
+}
+
 
 .side-menu {
   position: fixed;
+  top: 5rem;
   z-index: 2;
-  top: 3.5rem;
   width: 100%;
   height: 100%;
   display: flex;
@@ -216,7 +220,6 @@ input[type="checkbox"] {
   transform: translateX(100%);
   transition: transform 0.3s ease;
 }
-
 
 
 
@@ -230,9 +233,9 @@ input[type="checkbox"] {
   background-color:#7F56D9;
 }
 .side-nav a {
+  padding: 5% 5%;
   cursor: pointer;
   width: 100%;
-  padding: 5% 5%;
   transition: border-left-color 0.3s ease;
 }
 
@@ -240,14 +243,18 @@ input[type="checkbox"] {
   background-color:#7F56D9;
 }
 #side-buttons {
-  padding: 4% 0%;
-  gap: 2%;
+  padding: 5% 0%;
+  gap: 3%;
   flex: 0 0 20%;
   justify-items:end;
   background-color: #7F56D9;
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+#side-buttons img {
+  width: 2rem;
 }
 
 
@@ -265,9 +272,7 @@ input[type="checkbox"] {
 
 
 
-#burger-menu {
-  display: none;
-}
+
 /*End of Burger*/
 .toggle-button img:last-child {
   display: none;
@@ -864,8 +869,11 @@ footer hr {
 }
 
 
-
 @media screen and (max-width: 599px) {
+
+.burger  {
+  display: inline;
+}
   #hero-buttons {
     flex-direction: column;
   }
@@ -876,9 +884,6 @@ footer hr {
     transform: none;
   }
 
-#burger-button:checked ~ .side-menu {
-  transform: translateX(0); 
-}
 
 .up-button {
   padding: 5% 5%;
@@ -898,6 +903,7 @@ footer hr {
   .hero-heading {
     width: 100%;
   }
+
   .main-button {
     padding: 1em 0;
     border-radius: 2%;
@@ -907,17 +913,33 @@ footer hr {
     grid-template-columns: repeat(1, 1fr);
   }
   #burger-menu {
-    display: inline;
+    display: flex;
   }
 
-
+  #nav-bar {
+    margin: 5% 5%;
+  }
   .feature-box img {
     width: 4em;
   }
 
-  main {
-    padding: 20% 0 0 0;
-  }
+
+body:has(#burger-button:checked) .side-menu {
+  transform: translateX(0); 
+}
+
+
+body:has(#burger-button:checked) .x {
+  display: inline;
+}
+
+
+
+body:has(#burger-button:checked) .burger {
+  display: none;
+}
+
+
 
 }
 
