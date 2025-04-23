@@ -2,9 +2,9 @@
   --backColor: white;
   --textColor: black;
   --descText:#464749;
-  --mainHeadingFont:3em;
-  --logo-font:2.5em;
-  --mainDescFont:2em;
+  --mainHeadingFont:3rem;
+  --logo-font:2.5rem;
+  --mainDescFont:2rem;
   --violetColor:#7F56D9;
   --darkVioletColor:#53389E;
   --whiteColor:white;
@@ -13,12 +13,15 @@
   --back-two:rgba(240, 240, 240, 0.89);
   --project-title:1.5rem;
   --project-desc:1rem;
-  --violet-text:2em;
-  --hero-main-font:7.5em;
-  --hero-img-width:2.5em;
-  --feature-desc-font:2em;
-  --contact-title-font:2em;
-}
+  --violet-text:2rem;
+  --hero-main-font:7.5rem;
+  --hero-img-width:2.5rem;
+  --feature-desc-font:2rem;
+  --contact-title-font:2rem;
+  --filter-btn-size:1.5rem;
+  --purple-filter: invert(76%) sepia(61%) saturate(782%) hue-rotate(225deg) brightness(84%) contrast(93%);
+  }
+  
 
 :root:has(#toggle-theme:checked) {
   --backColor: black;
@@ -26,6 +29,7 @@
   --descText: white;
   --back-two:rgba(255, 253, 253, 0.075);
   --contact-back:#ffffff0e;
+  --purple-filter: invert(0) brightness(100);
 }
 body, html {
   overflow-x: hidden;
@@ -54,7 +58,6 @@ header label {
   border: none;
   cursor: pointer;
 }
-
 
 
 body button:hover  {
@@ -125,7 +128,6 @@ body button:hover  {
 }
 
 
-
 /*HEADER PART */
 
 
@@ -136,7 +138,7 @@ a {
 
 main {
   margin:0;
-  padding: 20% 0 0 0;
+  padding: 5% 0 0 0;
 }
 
 header img {
@@ -187,18 +189,6 @@ header {
   display: none;
 }
 
-.x > * ~ :last-child {
-  display: none;
-}
-
-body:has(#toggle-theme:checked) .x img:first-child {
-  display: none;
-}
-
-body:has(#toggle-theme:checked) .x img:last-child {
-  display: inline;
-}
-
 #burger-menu {
   display: none;
   align-items: center;
@@ -209,9 +199,14 @@ body:has(#toggle-theme:checked) .x img:last-child {
 }
 
 
+
+.color-btn {
+  filter: var(--purple-filter);
+}
+
 .side-menu {
   position: fixed;
-  top: 5rem;
+  top: 4rem;
   z-index: 2;
   width: 100%;
   height: 100%;
@@ -286,6 +281,7 @@ body:has(#toggle-theme:checked) .toggle-button img:first-child {
 body:has(#toggle-theme:checked) .toggle-button img:last-child {
   display: inline;
 }
+
 /*HERO PART */  
 
 #hero-container {
@@ -815,8 +811,11 @@ footer hr {
 /* Buttons */
 .filter-btn {
   text-decoration: none;
-  text-underline-offset: 17px;
+  font-weight: bold;
+  text-underline-offset: calc(var(--filter-btn-size)* 0.6);
+  color: #ccc;  
   cursor: pointer;
+  font-size: var(--filter-btn-size);
   position: relative;
   transform: scaleX(1);
   transform-origin: left;
@@ -874,6 +873,9 @@ footer hr {
 .burger  {
   display: inline;
 }
+  main {
+  padding: 20% 0 0 0;
+  }
   #hero-buttons {
     flex-direction: column;
   }
@@ -884,6 +886,7 @@ footer hr {
     transform: none;
   }
 
+  
 
 .up-button {
   padding: 5% 5%;
@@ -899,6 +902,7 @@ footer hr {
     --violet-text:1.2em;
     --mainHeadingFont:2em;
     --faq-font:1rem;
+    --filter-btn-size:0.9rem;
   }
   .hero-heading {
     width: 100%;
@@ -923,11 +927,18 @@ footer hr {
     width: 4em;
   }
 
+  .filter-btn {
+    text-underline-offset: calc(var(--filter-btn-size)* 0.9);
+  }
 
 body:has(#burger-button:checked) .side-menu {
   transform: translateX(0); 
 }
 
+
+body:has(#burger-button:checked)  {
+ overflow-y: hidden;
+}
 
 body:has(#burger-button:checked) .x {
   display: inline;

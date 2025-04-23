@@ -180,8 +180,10 @@ function filter(num, tag) {
   let filtered = articles;
  for(let i = 0; i < filterButton.length; i++) {
   filterButton[i].style.textDecoration ="none";
+  filterButton[i].style.color = "#ccc";
  }
   filterButton[num].style.textDecoration ="underline";
+  filterButton[num].style.color = "#7F56D9";
     filtered = filterByTags(filtered, tag);
   SetProjects(filtered);
 }
